@@ -14,12 +14,12 @@ const TaskPage = () => {
       desc: desc,
       date: date,
     });
+    console.log("New task created with id: " + tasks[tasks.length - 1].id);
     setAdd(false);
     {
-      document.getElementById("add").style.transition = "transform 0.25s";
+      document.getElementById("add").style.transition = "transform 0.1s";
       document.getElementById("add").style.transform = "rotate(0deg)";
-      document.getElementById("add").style.transition = "transform 0.25s";
-      document.getElementById("add").style.transform = "rotate(0deg)";
+      document.getElementById("add").style.color = "black";
     }
     setTasks(tasks);
   };
@@ -41,16 +41,16 @@ const TaskPage = () => {
           onClick={() => {
             setAdd(!taskAdd);
             if (!taskAdd) {
-              document.getElementById("add").style.transformOrigin = "50% 50%";
               document.getElementById("add").style.transition =
-                "transform 0.25s";
+                "transform 0.1s";
               document.getElementById("add").style.transform =
                 "rotate(45deg) translate(4px,-1px)";
+              document.getElementById("add").style.color = "red";
             } else {
-              document.getElementById("add").style.transformOrigin = "50% 50%";
               document.getElementById("add").style.transition =
-                "transform 0.25s";
+                "transform 0.1s";
               document.getElementById("add").style.transform = "rotate(0deg)";
+              document.getElementById("add").style.color = "black";
             }
           }}
           className="bi bi-plus"
