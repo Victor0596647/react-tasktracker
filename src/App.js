@@ -1,5 +1,5 @@
 import TaskPage from "./TaskPage.js";
-import "./assets/styles.css"
+import "./styles/styles.css";
 
 const App = () => {
   return (
