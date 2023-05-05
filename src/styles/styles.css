@@ -28,6 +28,7 @@ button:disabled {
   border-radius: 5px;
   border: 3px solid rgb(27, 27, 27);
   padding: 10px;
+  min-height: 95vh;
 }
 
 .task-bar {
@@ -48,11 +49,13 @@ button:disabled {
   color: black;
   font-size: 35px;
   cursor: pointer;
+  rotate: 0deg;
+  transform: translate(0px,0px);
 }
 
-.bi.bi-plus::before {
-  vertical-align: center;
-}
+/* .bi.bi-plus:hover {
+  rotate: 45deg;
+} */
 
 .bi.bi-trash-fill:hover {
   color: red;
@@ -66,6 +69,7 @@ button:disabled {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: fit-content;
   border-radius: 5px;
   border-width: 1px;
   border-color: rgb(197, 197, 197);
@@ -80,10 +84,6 @@ button:disabled {
   box-shadow: 5px 5px 10px whitesmoke, -5px -5px 10px whitesmoke;
   transition: ease-in-out 0.1s;
   border-color: whitesmoke;
-}
-
-.task-container:first-child {
-  margin-bottom: 15px;
 }
 
 .task-container:last-child {
