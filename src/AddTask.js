@@ -7,12 +7,16 @@ const AddTask = ({ taskAdd }) => {
   const [date, setDate] = useState("");
 
   return (
-    <div className="addtask-container">
+    <div className="addtask-container" id="addtask-container">
       <form
         className="addtask-form"
         onSubmit={(e) => {
           e.preventDefault();
           taskAdd(title, desc, date);
+          //Reset
+          setTitle("");
+          setDesc("");
+          setDate("");
         }}
       >
         <h2>Add a Task</h2>
