@@ -2,7 +2,7 @@ const Tasks = ({ tasks, taskDelete }) => {
   return (
     <div className="taskLists">
       {tasks.map((task) => (
-        <div className="task-container" key={task.id}>
+        <div className="task-container" id={`task-${task.id}`} key={task.id}>
           <div className="taskData">
             <h2>{task.name}</h2>
             <p>{task.desc}</p>
