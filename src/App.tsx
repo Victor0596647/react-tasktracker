@@ -1,9 +1,10 @@
 import React from 'react'
+import { TaskLayout } from './components/TaskLayout'
 
 function App():React.ReactElement {
   return (
     <>
-      <h1>Hello World!</h1>
+      <TaskLayout />
     </>
   )
 }
