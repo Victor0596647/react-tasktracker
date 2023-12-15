@@ -1,10 +1,32 @@
 @tailwind base;
+@layer base {
+  @font-face {
+    font-family: 'Rethink Sans';
+    src: url('../../fonts/RethinkSans.ttf');
+  }
+}
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: "Rethink Sans", sans-serif;
+  @apply text-5xl font-extrabold
+}
+
+h2 {
+  @apply text-4xl font-bold
+}
+
+h3 {
+  @apply text-3xl font-semibold
+}
+
+h4 {
+  @apply text-2xl font-medium
 }
