@@ -1,0 +1,25 @@
+
+.taskLayout {
+    @apply m-1 rounded-xl border-2 border-gray-400 shadow-lg bg-slate-50;
+    min-height: 99vh;
+}
+
+.header {
+    @apply flex justify-between m-8 items-center select-none
+}
+
+.plus {
+    @apply text-6xl cursor-pointer text-black transition ease-in duration-100;
+}
+
+.plus svg {
+    @apply rotate-0 origin-center transition ease-out;
+}
+
+.plus.active svg {
+    @apply rotate-45;
+}
+
+.plus.active {
+    @apply text-red-600;
+}
