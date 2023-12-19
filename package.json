@@ -1,41 +1,49 @@
 {
   "name": "react-tasktracker",
+  "private": true,
   "version": "1.0.0",
-  "description": "Just a simple tasktracker made with react",
-  "keywords": [
-    "react"
-  ],
-  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "js-cookie": "^3.0.5",
-    "loader-utils": "3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
-    "@babel/runtime": "7.13.8",
-    "typescript": "4.1.3"
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Victor0596647/react-tasktracker.git"
   },
+  "keywords": [
+    "tasktracker",
+    "react",
+    "typescript"
+  ],
   "author": "Victor0596647",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Victor0596647/react-tasktracker/issues"
-  }
+  },
+  "homepage": "https://github.com/Victor0596647/react-tasktracker#readme"
 }
