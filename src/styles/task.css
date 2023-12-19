@@ -1,19 +1,20 @@
-
 .taskLayout {
-    @apply m-1 rounded-xl border-2 border-gray-400 shadow-lg bg-slate-50;
+    @apply relative m-1 rounded-xl border-2 border-gray-400 shadow-lg bg-slate-50;
     min-height: 99vh;
 }
 
 .header {
-    @apply flex justify-between m-8 items-center select-none
+    @apply relative p-8 flex justify-between items-center z-10 bg-slate-50 rounded-tr-xl rounded-tl-xl;
 }
 
 .plus {
-    @apply text-6xl cursor-pointer text-black transition ease-in duration-100;
+    @apply text-6xl cursor-pointer text-black select-none transition ease-in duration-100;
 }
 
 .plus svg {
     @apply rotate-0 origin-center transition ease-out;
+    stroke-width: 1.5px;
+    stroke-linejoin: round;
 }
 
 .plus.active svg {
@@ -22,4 +23,32 @@
 
 .plus.active {
     @apply text-red-600;
+}
+
+.tasks {
+    @apply flex flex-col space-y-2 first:mt-0 last:mb-0 h-fit transition-all
+}
+
+.task {
+    @apply flex flex-row h-fit justify-between items-center sm:mx-4 p-4 px-6 rounded-xl border-2 border-gray-500 bg-white shadow-md transition;
+}
+
+.task.deleted * {
+    @apply hidden;
+}
+
+.delete {
+    @apply text-5xl cursor-pointer text-red-600 select-none
+}
+
+.addTask {
+    @apply absolute lg:px-64 max-lg:px-4 pb-4 h-fit bg-slate-50 w-full shadow-xl z-0 translate-y-0;
+}
+
+.addTask form {
+    @apply flex flex-col w-full space-y-4 m-auto;
+}
+
+.addTask form input[type='submit'] {
+    @apply m-auto
 }
