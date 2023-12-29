@@ -30,7 +30,7 @@
 }
 
 .task {
-    @apply flex flex-row h-fit justify-between items-center sm:mx-4 p-4 px-6 rounded-xl border-2 border-gray-500 bg-white shadow-md transition;
+    @apply flex flex-row h-fit justify-between items-center sm:mx-4 p-4 px-6 rounded-xl border-2 border-gray-500 bg-white shadow-md hover:shadow-lg transition;
 }
 
 .task.deleted * {
