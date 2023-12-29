@@ -1,10 +1,10 @@
 import { BsTrash3Fill } from "react-icons/bs";
-import { TaskObj } from "./TaskLayout";
+import { TaskObj } from "./taskReducer";
 
 async function handleAnimation(
   e: React.MouseEvent<HTMLSpanElement>,
-  id: string,
-  handleDelete: (id: string) => void
+  taskV: TaskObj,
+  handleDelete: (task: TaskObj) => void
 ) {
   const task = e.currentTarget.parentElement!;
   task
@@ -47,7 +47,7 @@ async function handleAnimation(
         .finished.then(() => {
           task.classList.toggle("deleted");
         })
-        .finally(() => handleDelete(id));
+        .finally(() => handleDelete(taskV));
     });
 }
 
@@ -56,7 +56,7 @@ export function Task({
   handleDelete,
 }: {
   taskList: TaskObj[];
-  handleDelete: (id: string) => void;
+  handleDelete: (task: TaskObj) => void;
 }): React.ReactElement {
   return (
     <ul className="tasks">
@@ -67,15 +67,15 @@ export function Task({
               <h2>{v.title}</h2>
               <h4 className="pl-4">{v.desc}</h4>
               <h4>
-                {`${v.date.toLocaleDateString()} 
-                ${v.date.toLocaleTimeString().slice(0, v.date.toLocaleTimeString().lastIndexOf(':'))} 
+                {`${v.date.toLocaleDateString()}
+                ${v.date.toLocaleTimeString().slice(0, v.date.toLocaleTimeString().lastIndexOf(':'))}
                 ${v.date.toLocaleTimeString().split(" ")[1] ? v.date.toLocaleTimeString().split(" ")[1] : ''}`}
               </h4>
             </div>
             <span
               className="delete"
               onClick={(e) => {
-                handleAnimation(e, v.id, handleDelete);
+                handleAnimation(e, v, handleDelete);
               }}
             >
               <BsTrash3Fill />

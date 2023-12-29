@@ -1,6 +1,8 @@
 import React, { FormEvent } from "react";
+import { TaskObj } from './taskReducer';
+import hexGen from './hexGen';
 
-export function AddTask({handleAdd}:{handleAdd:(title:string, desc:string, date:Date) => void}):React.ReactElement {
+export function AddTask({handleAdd}:{handleAdd:(task:TaskObj) => void}):React.ReactElement {
     return (
         <div className="addTask">
             <form method='post' onSubmit={e => {e.preventDefault(); onSubmit(e, handleAdd)}}>
@@ -13,8 +15,8 @@ export function AddTask({handleAdd}:{handleAdd:(title:string, desc:string, date:
     )
 }
 
-function onSubmit(e:FormEvent<HTMLFormElement>, handleAdd:(title:string, desc:string, date:Date) => void) {
+function onSubmit(e:FormEvent<HTMLFormElement>, handleAdd:(task: TaskObj) => void) {
     const form = new FormData(e.currentTarget);
-    const {title, desc, date} = {title:form.get("taskName")!.toString(), desc:form.get("taskDesc")!.toString(), date: new Date(form.get("taskDate") as unknown as Date)};
-    handleAdd(title, desc, date);
+    const task: TaskObj = {id: hexGen(8), title:form.get("taskName")!.toString(), desc:form.get("taskDesc")!.toString(), date: new Date(form.get("taskDate") as unknown as Date)};
+    handleAdd(task);
 }

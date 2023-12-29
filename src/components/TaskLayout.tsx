@@ -1,43 +1,35 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useReducer, useRef, useState } from "react";
 import {BsPlus} from 'react-icons/bs'
 import { Task } from "./Task";
-import { getRanHex } from "./hexGen";
-
 import '../styles/task.css';
 import { AddTask } from "./AddTask";
-
-export type TaskObj = {
-    id: string,
-    title: string,
-    desc: string,
-    date: Date
-}
+import { TaskObj, taskReducer } from "./taskReducer";
 
 export function TaskLayout():React.ReactElement {
-    const [taskList, setTaskList] = useState<TaskObj[]>([]);
+    const [taskState, taskDispatch] = useReducer(taskReducer, []);
     const [add, setAdd] = useState<boolean>(false);
     const plusRef = useRef<HTMLSpanElement>(null);
 
     useEffect(()=> {
-    }, [JSON.stringify(taskList)])
+        console.log(taskState);
+    }, [taskState])
 
     const handleActive = useCallback(() => {
-        if(plusRef.current) 
+        if(plusRef.current)
             plusRef.current.classList.toggle('active');
             setAdd(!add);
         return
     }, [add])
 
-    const handleDelete = useCallback((id: string) => {
-        setTaskList(taskList.filter((t) => {return id !== t.id}));
-    }, [taskList])
+    const handleDelete = useCallback((task: TaskObj) => {
+        taskDispatch({type:'REMOVE', value:task})
+    }, [taskState])
 
-    const handleAdd = useCallback((title:string, desc:string, date:Date) => {
-        taskList.push({id:getRanHex(8), title:title, desc:desc, date:date});
-        setTaskList(taskList);
+    const handleAdd = useCallback((task: TaskObj) => {
+        taskDispatch({type:'ADD', value:task})
         handleActive();
         setAdd(false);
-    }, [taskList])
+    }, [taskState])
 
     return (
         <div className="taskLayout">
@@ -48,7 +40,7 @@ export function TaskLayout():React.ReactElement {
             {
                 add ? (<AddTask handleAdd={handleAdd} />) : null
             }
-            <Task taskList={taskList} handleDelete={handleDelete}/>
+            <Task taskList={taskState} handleDelete={handleDelete}/>
         </div>
     )
 }
