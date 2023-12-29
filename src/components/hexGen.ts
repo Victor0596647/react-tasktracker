@@ -1,4 +1,4 @@
-export const getRanHex = (size: number) => {
+export default (size: number) => {
     let result = [];
     let hexRef = [
       "0",
@@ -18,7 +18,7 @@ export const getRanHex = (size: number) => {
       "e",
       "f",
     ];
-  
+
     for (let n = 0; n < size; n++) {
       result.push(hexRef[Math.floor(Math.random() * 16)]);
     }
