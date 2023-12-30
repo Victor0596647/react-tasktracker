@@ -38,11 +38,11 @@
 }
 
 .delete {
-    @apply text-5xl cursor-pointer text-red-600 select-none
+    @apply text-5xl cursor-pointer text-red-600 hover:text-red-800 select-none hover:scale-105 transition;
 }
 
 .addTask {
-    @apply absolute lg:px-64 max-lg:px-4 pb-4 h-fit bg-slate-50 w-full shadow-xl z-0 translate-y-0;
+    @apply absolute lg:px-64 max-lg:px-4 pb-4 h-fit bg-slate-50 w-full shadow-xl z-0 translate-y-0 transition-all;
 }
 
 .addTask form {
