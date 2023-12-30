@@ -1,14 +1,14 @@
-import React, { FormEvent } from "react";
+import { FormEvent } from "react";
 import { TaskObj } from './taskReducer';
 import hexGen from './hexGen';
 
-export function AddTask({handleAdd}:{handleAdd:(task:TaskObj) => void}):React.ReactElement {
+export function AddTask({handleAdd, visible}:{handleAdd:(task:TaskObj) => void, visible:boolean}) {
     return (
-        <div className="addTask">
-            <form method='post' onSubmit={e => {e.preventDefault(); onSubmit(e, handleAdd)}}>
-                <input name="taskName" type='text' required placeholder="Name"/>
+        <div className="addTask" style={{display:(visible ? 'block' : 'none'), opacity:0}}>
+            <form method='post' onSubmit={e => {e.preventDefault(); onSubmit(e, handleAdd)}} autoComplete="off">
+                <input name="taskName" type='text' required placeholder="Name" />
                 <input name="taskDesc" type='text' required placeholder="Description" />
-                <input name="taskDate" type='datetime-local' required title="Task Date"/>
+                <input name="taskDate" type='datetime-local' required />
                 <input type='submit'/>
             </form>
         </div>
