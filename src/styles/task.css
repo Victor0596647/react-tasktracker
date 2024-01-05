@@ -1,14 +1,15 @@
 .taskLayout {
-    @apply relative m-1 rounded-xl border-2 border-gray-400 shadow-lg bg-slate-50;
+    @apply relative m-1 rounded-xl border-2 border-gray-400 dark:border-zinc-500 shadow-lg bg-slate-50 dark:bg-zinc-900;
     min-height: 99vh;
 }
 
 .header {
-    @apply relative p-8 flex justify-between items-center z-10 bg-slate-50 rounded-tr-xl rounded-tl-xl;
+    @apply relative p-8 flex justify-between items-center z-10 rounded-tr-xl rounded-tl-xl;
+    background-color: inherit;
 }
 
 .plus {
-    @apply text-6xl cursor-pointer text-black select-none transition ease-in duration-100;
+    @apply text-6xl cursor-pointer text-slate-950 dark:text-slate-50 select-none transition ease-in duration-100;
 }
 
 .plus svg {
@@ -30,7 +31,8 @@
 }
 
 .task {
-    @apply flex flex-row h-fit justify-between items-center sm:mx-4 p-4 px-6 rounded-xl border-2 border-gray-500 bg-white shadow-md hover:shadow-lg transition;
+    @apply flex flex-row h-fit justify-between items-center sm:mx-4 p-4 px-6 rounded-xl border-2 border-gray-500 dark:border-zinc-400 shadow-md hover:shadow-lg transition;
+    background-color: inherit;
 }
 
 .task.deleted * {
@@ -43,6 +45,7 @@
 
 .addTask {
     @apply absolute lg:px-64 max-lg:px-4 pb-4 h-fit bg-slate-50 w-full shadow-xl z-0 translate-y-0 transition-all;
+    background-color: inherit;
 }
 
 .addTask form {
@@ -52,3 +55,10 @@
 .addTask form input[type='submit'] {
     @apply m-auto
 }
+
+/* @media (prefers-color-scheme: dark) {
+    .taskLayout {
+        border-color: rgb(128 128 128);
+        background-color: rgb(32, 32, 32);
+    }
+} */
