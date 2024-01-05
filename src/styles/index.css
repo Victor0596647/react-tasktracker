@@ -12,6 +12,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  appearance: auto;
+  @apply text-slate-950 dark:text-slate-50;
+}
+
+html {
+  @apply dark:bg-gray-900;
 }
 
 h1 {
@@ -32,9 +38,9 @@ h4 {
 }
 
 input[type=submit]{
-  @apply bg-slate-900 rounded-md shadow-md text-white font-bold py-1 md:px-32 max-md:px-8 text-xl w-fit hover:scale-105 transition cursor-pointer;
+  @apply bg-slate-900 text-slate-50 dark:bg-zinc-800 rounded-md shadow-md font-bold py-1 md:px-32 max-md:px-8 text-xl w-fit hover:scale-105 transition cursor-pointer;
 }
 
 input[type=text], [type=datetime-local]{
-  @apply bg-inherit text-xl border-b-4 border-b-gray-400 focus:border-b-gray-950 outline-none transition-all;
+  @apply bg-inherit text-xl border-b-4 border-b-gray-400 dark:border-b-zinc-600 focus:border-b-gray-950 focus:dark:border-b-zinc-800 outline-none transition-all;
 }
